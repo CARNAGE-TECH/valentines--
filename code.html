@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Happy Valentine’s Day ❤️</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            text-align: center;
+            background: linear-gradient(135deg, #ff758c, #ff7eb3);
+            color: white;
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            position: relative;
+        }
+
+        h1 {
+            font-size: 2.5em;
+            margin-top: 20px;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .message {
+            font-size: 1.2em;
+            padding: 20px;
+            max-width: 600px;
+            margin: auto;
+            opacity: 0;
+            animation: fadeIn 2s ease-in-out forwards;
+        }
+
+        .heart {
+            font-size: 50px;
+            animation: heartbeat 1s infinite alternate;
+            margin: 20px;
+        }
+
+        .gallery {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .gallery img {
+            width: 150px;
+            height: 150px;
+            object-fit: cover;
+            border-radius: 10px;
+            margin: 10px;
+            box-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+
+        .gallery img:hover {
+            transform: scale(1.1);
+            box-shadow: 0 0 20px rgba(255, 255, 255, 1);
+        }
+
+        footer {
+            margin-top: 30px;
+            font-size: 1.2em;
+            animation: fadeIn 2s ease-in-out 2s forwards;
+            opacity: 0;
+        }
+
+        /* Floating Hearts Animation */
+        .floating-heart {
+            position: absolute;
+            font-size: 20px;
+            color: white;
+            opacity: 0.7;
+            animation: floatUp 5s linear infinite;
+        }
+
+        /* Keyframe Animations */
+        @keyframes heartbeat {
+            from { transform: scale(1); }
+            to { transform: scale(1.2); }
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; }
+            to { opacity: 1; }
+        }
+
+        @keyframes floatUp {
+            from { transform: translateY(100vh); opacity: 0.7; }
+            to { transform: translateY(-10vh); opacity: 0; }
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Happy Valentine’s Day, <span id="name">Your Girlfriend's Name</span>! ❤️</h1>
+    <p class="message">
+        From the moment we met, you became my world. Every laugh, every text, and every moment with you means everything to me.  
+        You are beautiful, strong, and the best part of my life. I love you more than words can say.  
+        Happy Valentine’s Day, my love. ❤️  
+    </p>
+
+    <div class="heart">💖</div>
+
+    <h2>Our Beautiful Memories</h2>
+    <div class="gallery">
+        <img src="gallery/photo1.jpg" alt="Memory 1">
+        <img src="gallery/photo2.jpg" alt="Memory 2">
+        <img src="gallery/photo3.jpg" alt="Memory 3">
+    </div>
+
+    <footer>Forever Yours, <br> Timothy 💌</footer>
+
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            const heart = document.querySelector('.heart');
+            setInterval(() => {
+                heart.innerHTML = heart.innerHTML === "💖" ? "❤️" : "💖";
+            }, 500);
+
+            // Floating Hearts Effect
+            function createHeart() {
+                const heart = document.createElement("div");
+                heart.className = "floating-heart";
+                heart.innerHTML = "❤️";
+                heart.style.left = Math.random() * 100 + "vw";
+                heart.style.animationDuration = (Math.random() * 3 + 3) + "s";
+                document.body.appendChild(heart);
+                
+                setTimeout(() => {
+                    heart.remove();
+                }, 5000);
+            }
+
+            setInterval(createHeart, 500);
+        });
+    </script>
+
+</body>
+</html>
